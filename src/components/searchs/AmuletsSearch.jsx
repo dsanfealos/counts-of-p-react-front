@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useFetchGet from "../util/useFetchGet";
 
 const AmuletSearch = () => {
-    const [amulets, setAmulets] = useState([]);
+    const [shouldFecth, setShouldFecth] = useState(false);
+    const {data, isPending, error} = useFetchGet('https://countsofp.com/player/amulet', shouldFecth)
     
-    const showAmuletList = () => {
-        fetch("https://countsofp.com/player/amulet")
-        .then(response => 
-            response.json()
-        ).then(data => {
-            setAmulets(data)
-            console.log(data);
-        })
+    const showAmuletList = () => { 
+        setShouldFecth(true);     
     }
 
     return (  
@@ -19,8 +15,10 @@ const AmuletSearch = () => {
             <p style={{color:"white"}}>Look for the best amulets for your build!</p>
             <button onClick={showAmuletList}>Show</button>
             <div className="show-amulets">
-                <h3>Result</h3>
-                {amulets.map((amulet) => {
+                <h3>Amulet list</h3>
+                {error && <div>{error}</div>}
+                {isPending && <div>Loading...</div>}
+                {data && data.map((amulet) => {
                     return (
                         <div className="amulet-preview" key={amulet.id}>
                             <h3 style={{color:"black"}}>{amulet.name}</h3> 
@@ -31,6 +29,7 @@ const AmuletSearch = () => {
                                 <li>Stats increased: </li>
                                 <li>Attributes increased: </li>
                             </ul>                       
+                            <button>Add to build</button>
                         </div>
                     )
                 })}
