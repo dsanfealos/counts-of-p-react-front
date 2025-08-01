@@ -8,6 +8,9 @@ const AmuletSearch = () => {
     const showAmuletList = () => { 
         setShouldFecth(true);     
     }
+    const addAmulet = (data) =>{
+        return(data.amulet.name);
+    }
 
     return (  
         <div className="amulet-search">
@@ -26,10 +29,23 @@ const AmuletSearch = () => {
                                 <li>Id: {amulet.id}</li>
                                 <li>Description: {amulet.description}</li>
                                 <li>Weigth: {amulet.weight} kg</li>
-                                <li>Stats increased: </li>
-                                <li>Attributes increased: </li>
+                                <li>Stats increased: 
+                                    {amulet.statIncreaseAmus.length == 0 && <div style={{color:"black", marginLeft:"20px"}}>None</div>}
+                                    {amulet.statIncreaseAmus.map((increase) => {
+                                    return (
+                                    <div key={increase.id} style={{marginLeft:"20px"}}>Stat: {increase.stat.name}, Flat Increase: {increase.flatIncrease},
+                                     Percentual Increase: {Math.floor(increase.percentageIncrease *100)}%</div>
+                                )
+                                })}</li>
+                                <li>Attributes increased: 
+                                    {amulet.attributeIncreaseAmus.length == 0 && <div style={{color:"black", marginLeft:"20px"}}>None</div>}
+                                    {amulet.attributeIncreaseAmus.map((increase) => {
+                                    return (
+                                    <div key={increase.id} style={{marginLeft:"20px"}}>Attribute: {increase.attribute.name}, Flat Increase: {increase.flatIncrease}</div>
+                                )
+                                })}</li>
                             </ul>                       
-                            <button>Add to build</button>
+                            <button onClick={() => addAmulet({amulet})}>Add to build</button>
                         </div>
                     )
                 })}

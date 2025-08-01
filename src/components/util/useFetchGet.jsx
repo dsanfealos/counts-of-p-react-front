@@ -24,6 +24,7 @@ const useFetchGet = (url, trigger) => {
                 setIsPending(false);
             });
     }, [trigger, url]);
+    console.log(data);
     return {data, isPending, error};
 }
  

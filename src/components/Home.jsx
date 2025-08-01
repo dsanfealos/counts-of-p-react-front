@@ -5,7 +5,7 @@ const Home = () => {
                 <div className="presentation-options">
                     <h2>Options</h2>
                     <br/>
-                    <p><a href="/character.html">Character:</a> This option lets you to check the build choices that affect only your character stats, like amulets or attributes.</p>
+                    <p><a href="/character">Character:</a> This option lets you to check the build choices that affect only your character stats, like amulets or attributes.</p>
                     <br/>
                     <p><a href="/#">Weapons:</a> This option lets you to check the build options that affect only to the weapon stats, like upgrading it, changing handles or modifying handles.</p>
                     <br/>

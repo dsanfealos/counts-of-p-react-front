@@ -1,5 +1,11 @@
+import { useState } from "react";
+
 const Character = () => {
     const ergo = 0;
+    const [selectedAmulets, setSelectedAmulets] = useState([]);
+
+    
+
     return (  
         <div className="character">
             <div className="interaction-box">
@@ -17,75 +23,73 @@ const Character = () => {
                         <ul>
                             <li>
                                 <label>Nivel: </label>
-                                <input type="number" min={9} defaultValue={9}></input>
+                                <input type="number" min={10} defaultValue={10}></input>
                                 </li>
                             <li>
                                 <label>Vitalidad:</label> 
-                                <input type="number"></input>
+                                <input type="number" min={8} defaultValue={8}></input>
                             </li>
                             <li>
                                 <label>Vigor:</label> 
-                                <input type="number"></input>
+                                <input type="number" min={5} defaultValue={5}></input>
                             </li>
                             <li>
                                 <label>Capacidad:</label> 
-                                <input type="number"></input>
+                                <input type="number" min={7} defaultValue={7}></input>
                             </li>
                             <li>
                                 <label>Técnica:</label> 
-                                <input type="number"></input>
+                                <input type="number" min={5} defaultValue={5}></input>
                             </li>
                             <li>
                                 <label>Motricidad:</label> 
-                                <input type="number"></input>
+                                <input type="number" min={5} defaultValue={5}></input>
                             </li>
                             <li>
                                 <label>Avance: </label>
-                                <input type="number"></input>
+                                <input type="number" min={6} defaultValue={6}></input>
                             </li>
                         </ul>
                     </div>
                     <div className="selection-final">
                         <p>Final</p>
                         <ul>
-                        <li>
-                            <label>Nivel: </label>
-                            <input type="number" min={9} defaultValue={9}></input>
+                            <li>
+                                <label>Nivel: </label>
+                                <input type="number" min={10} defaultValue={10}></input>
+                                </li>
+                            <li>
+                                <label>Vitalidad:</label> 
+                                <input type="number" min={8} defaultValue={8}></input>
                             </li>
-                        <li>
-                            <label>Vitalidad:</label> 
-                            <input type="number"></input>
-                        </li>
-                        <li>
-                            <label>Vigor:</label> 
-                            <input type="number"></input>
-                        </li>
-                        <li>
-                            <label>Capacidad:</label> 
-                            <input type="number"></input>
-                        </li>
-                        <li>
-                            <label>Técnica:</label> 
-                            <input type="number"></input>
-                        </li>
-                        <li>
-                            <label>Motricidad:</label> 
-                            <input type="number"></input>
-                        </li>
-                        <li>
-                            <label>Avance: </label>
-                            <input type="number"></input>
-                        </li>
-                    </ul>
+                            <li>
+                                <label>Vigor:</label> 
+                                <input type="number" min={5} defaultValue={5}></input>
+                            </li>
+                            <li>
+                                <label>Capacidad:</label> 
+                                <input type="number" min={7} defaultValue={7}></input>
+                            </li>
+                            <li>
+                                <label>Técnica:</label> 
+                                <input type="number" min={5} defaultValue={5}></input>
+                            </li>
+                            <li>
+                                <label>Motricidad:</label> 
+                                <input type="number" min={5} defaultValue={5}></input>
+                            </li>
+                            <li>
+                                <label>Avance: </label>
+                                <input type="number" min={6} defaultValue={6}></input>
+                            </li>
+                        </ul>
                     </div>
                     <div className="amulet-selection">
                         <p>Amulets selected:</p>
                         <ul>
-                            <li>Amuleto de Fuerza</li>
-                            <li>Amuleto de Venganza</li>
-                            <li>Amuleto de Tortura</li>
-                            <li>Amuleto de Dormir</li>
-                            <li>Amuleto de Sobra</li>
+                            {selectedAmulets.map((selected) => {
+                                <li>{selected.name}</li>
+                            })}
                         </ul>
                     </div>
                 </div>
