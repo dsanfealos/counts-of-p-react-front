@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import useFetchGet from "../util/useFetchGet";
+import showSelectedAmulets from "../Character";
 
-const AmuletSearch = () => {
+const AmuletSearch = ({onAddAmulet}) => {
     const [shouldFecth, setShouldFecth] = useState(false);
     const {data, isPending, error} = useFetchGet('https://countsofp.com/player/amulet', shouldFecth)
-    
+    const [selectedAmulets, setSelectedAmulets] = useState([null]);
+
     const showAmuletList = () => { 
         setShouldFecth(true);     
     }
     const addAmulet = (data) =>{
-        return(data.amulet.name);
+        
+        
     }
 
     return (  
@@ -45,7 +48,7 @@ const AmuletSearch = () => {
                                 )
                                 })}</li>
                             </ul>                       
-                            <button onClick={() => addAmulet({amulet})}>Add to build</button>
+                            <button onClick={() => onAddAmulet({amulet})}>Add to build</button>
                         </div>
                     )
                 })}

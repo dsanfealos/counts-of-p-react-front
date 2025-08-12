@@ -1,10 +1,8 @@
 import { useState } from "react";
+import getAmulet from "./searchs/AmuletsSearch"
 
-const Character = () => {
+const Character = (props) => {
     const ergo = 0;
-    const [selectedAmulets, setSelectedAmulets] = useState([]);
-
-    
 
     return (  
         <div className="character">
@@ -87,8 +85,8 @@ const Character = () => {
                     <div className="amulet-selection">
                         <p>Amulets selected:</p>
                         <ul>
-                            {selectedAmulets.map((selected) => {
-                                <li>{selected.name}</li>
+                            {Array.isArray(props.selectedAmulets) && props.selectedAmulets.map((selected) => {
+                                return (<li key={selected.id}>{selected.name} ||</li>)
                             })}
                         </ul>
                     </div>
