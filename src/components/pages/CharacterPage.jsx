@@ -6,7 +6,9 @@ const CharacterPage = () => {
     const [selectedList, setSelectedList] = useState([]);
 
     const handleAddAmulet = (data) => {
-        setSelectedList(prev => [...prev, data.amulet])
+        if(!selectedList.includes(data.amulet) && selectedList.length < 5){
+            setSelectedList(prev => [...prev, data.amulet]);
+        }        
     }
 
     return (  

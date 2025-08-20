@@ -4,15 +4,11 @@ import showSelectedAmulets from "../Character";
 
 const AmuletSearch = ({onAddAmulet}) => {
     const [shouldFecth, setShouldFecth] = useState(false);
-    const {data, isPending, error} = useFetchGet('https://countsofp.com/player/amulet', shouldFecth)
+    const {data, isPending, error} = useFetchGet('http://localhost:8080/player/amulet', shouldFecth)
     const [selectedAmulets, setSelectedAmulets] = useState([null]);
 
     const showAmuletList = () => { 
-        setShouldFecth(true);     
-    }
-    const addAmulet = (data) =>{
-        
-        
+        setShouldFecth(true);
     }
 
     return (  

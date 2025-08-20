@@ -87,7 +87,7 @@ body{
     padding-right: 30px;
     float: left;
     width: 35%;
-    height: 500px;
+    height: 600px;
 }
 .selection-initial{
     float: left;
@@ -183,6 +183,9 @@ body{
     padding: 10px;
     margin-bottom: 10px;
     text-align: left;
+}
+.result-number{
+    color: black;
 }
 footer{
     width: 100%;
