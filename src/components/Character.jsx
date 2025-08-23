@@ -2,7 +2,6 @@ import { useState } from "react";
 import getAmulet from "./searchs/AmuletsSearch"
 
 const Character = (props) => {
-    const ergo = 0;
     const [response, setResponse] = useState("");
     const attributesList = [
         { label: "Level", key: "level" },
@@ -104,7 +103,6 @@ const Character = (props) => {
         .then(response => response.json())
         .then(data => {
             setResponse(data);
-            console.log(data);
         })
     }
 

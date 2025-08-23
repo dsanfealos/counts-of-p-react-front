@@ -7,7 +7,7 @@ const Home = () => {
                     <br/>
                     <p><a href="/character">Character:</a> This option lets you to check the build choices that affect only your character stats, like amulets or attributes.</p>
                     <br/>
-                    <p><a href="/#">Weapons:</a> This option lets you to check the build options that affect only to the weapon stats, like upgrading it, changing handles or modifying handles.</p>
+                    <p><a href="/weapon">Weapons:</a> This option lets you to check the build options that affect only to the weapon stats, like upgrading it, changing handles or modifying handles.</p>
                     <br/>
                     <p><a href="/#">Full Build:</a> This option lets you to check the build options that affect the whole character, with weapon, armor parts and amulets equipped, and attributes upgraded.</p>
                     <br/>                

@@ -16,16 +16,15 @@ const AmuletSearch = ({onAddAmulet}) => {
             <h2 style={{color:"white"}}>Amulets</h2>
             <p style={{color:"white"}}>Look for the best amulets for your build!</p>
             <button onClick={showAmuletList}>Show</button>
-            <div className="show-amulets">
+            <div className="show-search">
                 <h3>Amulet list</h3>
                 {error && <div>{error}</div>}
                 {isPending && <div>Loading...</div>}
                 {data && data.map((amulet) => {
                     return (
-                        <div className="amulet-preview" key={amulet.id}>
+                        <div className="element-preview" key={amulet.id}>
                             <h3 style={{color:"black"}}>{amulet.name}</h3> 
                             <ul>
-                                <li>Id: {amulet.id}</li>
                                 <li>Description: {amulet.description}</li>
                                 <li>Weigth: {amulet.weight} kg</li>
                                 <li>Stats increased: 
