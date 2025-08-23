@@ -6,6 +6,16 @@ const Weapon = (props) => {
     const [blade, setBlade] = useState();
     const [handle, setHandle] = useState();
     const [weightCombined, setWeightCombined] = useState();
+    const stats =[
+        { label: "Name", key: "name" },
+        { label: "Physical Att.", key: "physicalAttack" },
+        { label: "Elemental Att.", key: "elementalAttack" },
+        { label: "Total Att.", key: "totalAttack" },
+        { label: "Technique", key: "technique" },
+        { label: "Motivity", key: "motivity" },
+        { label: "Advance", key: "advance" },
+        { label: "Weight", key: "weight" }
+    ]
 
     function calculate(event){
         event.preventDefault();
@@ -20,10 +30,10 @@ const Weapon = (props) => {
                 }`;
         }else{
             body=`{
-                    \"bladeName\":${blade.name},
+                    \"bladeName\":\"${blade.name}\",
                     \"currentLevel\":${formData.get("initialLevel")},
                     \"finalLevel\":${formData.get("finalLevel")},
-                    \"handleId\":${handle.id}
+                    \"handleId\":\"${handle.id}\"
                 }`;
         }
         fetchPostUpgrade(isSpecial, body);
@@ -47,7 +57,6 @@ const Weapon = (props) => {
         .then(response => response.json())
         .then(data => {
             setResponse(data);
-            console.log(data)
         });
     }
 
@@ -178,15 +187,24 @@ const Weapon = (props) => {
                     {response && <div>
                         <div className="result-stats">
                             <p>Stats</p>
-                            <ul>
-                                
-                            </ul>
+                            {weaponS &&<ul>
+                                {stats.map(({label, key}) =>(
+                                    <li key={key}>{label}: {" "}<span style={{color:"black"}}>{response.stats[key]}</span></li>
+                                ))}
+                                <li>Current Level: <span style={{color:"black"}}>{response.stats.currentLevel.currentLevel}</span></li>
+                            </ul>}
+                            {!weaponS &&<ul>
+                                {stats.map(({label, key}) =>(
+                                    <li key={key}>{label}: {" "}<span style={{color:"black"}}>{response[key]}</span></li>
+                                ))}
+                                <li>Current Level: <span style={{color:"black"}}>{response.blade.currentLevel.currentLevel}</span></li>
+                            </ul>}
                         </div>
-                        <div style={{float:"left", clear:"left"}}>
+                        <p style={{float:"left", color:"rgb(0, 195, 255)"}}>Ergo: {response.ergoCost}</p>
+                        <div style={{clear:"both", textAlign:"left", marginLeft:"30px"}}>
                             Materials: {Object.entries(response.materials).map(([key, value], index) =>(
                                 <p key={index}>{key}: {" "}{value}</p>
-                        ))}</div>
-                        <p style={{float:"left", clear:"left", color:"rgb(0, 195, 255)"}}>Ergo: {response.ergoCost}</p>
+                        ))}</div>                        
                     </div>}
                 </div>
             </div>

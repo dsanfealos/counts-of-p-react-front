@@ -10,7 +10,7 @@ const Character = (props) => {
         { label: "Capactiy", key: "capacity" },
         { label: "Technique", key: "technique" },
         { label: "Motivity", key: "motivity" },
-        { label: "Advance", key: "advance" },
+        { label: "Advance", key: "advance" }
     ];
     const statsList = [
         { label: "Health", key: "Health" },
@@ -35,7 +35,7 @@ const Character = (props) => {
         { label: "Slash Red", key: "Slash Red", isPercentage: true },
         { label: "Strike Red", key: "Strike Red", isPercentage: true },
         { label: "Pierce Red", key: "Pierce Red", isPercentage: true },
-        { label: "Weight", key: "Weight" },
+        { label: "Weight", key: "Weight" }
     ];
 
     function calculate(event) {
